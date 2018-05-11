@@ -18,12 +18,6 @@ import { CalcLogic } from '../../providers/calcLogic'
   templateUrl: 'makkah.html',
 })
 export class MakkahPage {
-  private c: HTMLCanvasElement;
-  private ctx: CanvasRenderingContext2D;
-  private angle: number;
-  private image: HTMLImageElement;
-  private deviceInfo: DeviceInfo;
-  private imgUrl = "./assets/imgs/compass.jpg";
   private R_EARTH = 6378137; // 地球の赤道半径
   private RAD = Math.PI / 180; // 1°あたりのラジアン
   private lat2 = 21.4225; // カーバ神殿の北緯
@@ -163,34 +157,5 @@ export class MakkahPage {
 
     
   }
-  imgSet() {
-    let self = this;
-    self.c = <HTMLCanvasElement>document.getElementById('c_1');
-    self.ctx = self.c.getContext("2d");  
-
-    self.image = new Image();
-
-    self.image.onload = () =>{
-      if(document.documentElement.clientWidth<=document.documentElement.clientHeight){
-        self.c.width = document.documentElement.clientWidth - 64;
-        self.c.height = document.documentElement.clientWidth - 64;
-      }else{
-        self.c.width = document.documentElement.clientHeight - 264;
-        self.c.height = document.documentElement.clientHeight - 264;
-      }
-      var theta = self.angle * Math.PI / 180;
-      self.ctx.clearRect(0, 0, self.c.width, self.c.height);
-      self.ctx.save();
-      self.ctx.translate(self.c.width / 2, self.c.height / 2);
-      self.ctx.rotate(theta);
-      self.ctx.drawImage(self.image, -self.c.width/2*0.8, -self.c.height/2*0.8,self.c.width*0.8,self.c.height*0.8);
-      self.ctx.restore();
-      
-    };
-    self.image.src = self.imgUrl;
-
-
-  }
-
   
 }
