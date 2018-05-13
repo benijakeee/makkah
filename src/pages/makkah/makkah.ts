@@ -2,8 +2,6 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { DeviceOrientation, DeviceOrientationCompassHeading } from '@ionic-native/device-orientation';
-import { DeviceInfo } from '../../shared/deviceInfo'
-import { CalcLogic } from '../../providers/calcLogic'
 
 /**
 * Generated class for the MakkahPage page.
